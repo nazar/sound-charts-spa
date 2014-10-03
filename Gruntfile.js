@@ -286,8 +286,8 @@ module.exports = function( grunt ){
                     level: 9
                 },
                 files: [
-                    {expand: true, src: ['dist/scripts/*.js'], ext: '.js.gz'},
-                    {expand: true, src: ['dist/styles/*.css'], ext: '.css.gz'}
+                    {expand: true, src: ['dist/scripts/*.js'] },
+                    {expand: true, src: ['dist/styles/*.css'] }
                 ]
             }
         },
@@ -406,8 +406,7 @@ module.exports = function( grunt ){
         'filerev',
         'usemin',
         'htmlmin',
-        'compress',
-        'exec:deploy_to_char_bit'
+        'compress'
     ] );
 
     grunt.registerTask( 'deploy', [

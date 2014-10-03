@@ -55,7 +55,6 @@ angular.module( 'spaApp' )
         }
 
         function playerNextHandler() {
-            console.log( 'playerNextHandler', getNextTrack() );
             playTrack( getNextTrack() );
         }
 
