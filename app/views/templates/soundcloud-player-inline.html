@@ -1,0 +1,38 @@
+<div class="soundcloud-player-inline" ng-class=" { loading: loading } ">
+
+    <div class="loading" ng-show=" loading ">
+        <i class="fa fa-cog fa-spin"></i>
+    </div>
+
+    <div class="player-container" ng-show=" loaded "></div>
+
+    <div class="detail-container clearfix" ng-hide=" loaded ">
+
+        <div class="cover">
+            <img ng-src=" {{  imageUrl() }} " alt=""/>
+        </div>
+
+        <div class="details">
+            <div class="play"
+                 ng-click=" playTrack($event) "
+              >
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-stack-1x fa-play"></i>
+                </span>
+            </div>
+
+            <div class="user">
+                {{ trackLabel() }}
+            </div>
+
+            <div class="track-name">
+                {{ trackName() }}
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>

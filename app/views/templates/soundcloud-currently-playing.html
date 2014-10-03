@@ -1,0 +1,39 @@
+<div class="soundcloud-currently-playing">
+
+    <div class="player-container">
+
+        <div class="previous control column"
+             ng-class=" { disabled: trackIsFirst() } "
+             ng-click=" playPrevious( $event ) "
+          >
+            <i class="fa fa-step-backward"></i>
+        </div>
+
+        <div class="play control column"
+              ng-hide=" trackIsPlaying() "
+              ng-click=" playTrack( $event ) "
+          >
+            <i class="fa fa-play"></i>
+        </div>
+
+        <div class="pause control column"
+              ng-show=" trackIsPlaying() "
+              ng-click=" pauseTrack( $event ) "
+          >
+            <i class="fa fa-pause"></i>
+        </div>
+
+        <div class="next control column"
+             ng-class=" { disabled: trackIsLast() } "
+             ng-click=" playNext( $event ) "
+          >
+            <i class="fa fa-step-forward"></i>
+        </div>
+
+        <div class="track-name column">
+            {{ trackName() }}
+        </div>
+
+    </div>
+
+</div>

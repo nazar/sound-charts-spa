@@ -1,0 +1,48 @@
+<div class="jumbotron">
+    <h1>Welcome to the daily Soundcloud top 100 show!</h1>
+</div>
+
+<div class="main-charts container">
+
+
+    <div ng-repeat=" track in tracks "
+         class="clearfix row"
+         ng-class=" { top3: $index < 3, top10: $index < 10 } "
+      >
+
+        <div class="col-md-1 col-xs-1 stats-column" >
+            <div
+              soundcloud-track-stats
+              track="track"
+              >
+
+            </div>
+        </div>
+
+        <div class="col-md-11 col-xs-11"
+          >
+            <div
+              soundcloud-player-inline
+              track="track"
+              load-player=" {{ $index < 10 }} "
+              >
+            </div>
+
+        </div>
+    </div>
+
+    <div
+        soundcloud-currently-playing
+        ng-if="tracks"
+        tracks="tracks"
+        current-track="currentTrack"
+      >
+
+    </div>
+
+
+
+</div>
+
+
+

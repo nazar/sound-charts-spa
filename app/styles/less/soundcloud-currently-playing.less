@@ -1,0 +1,63 @@
+.soundcloud-currently-playing {
+    position: fixed;
+
+    bottom: 10px;
+    right: 50px;
+
+    width: 250px;
+
+    overflow: hidden;
+
+    .player-container {
+
+        .shiny-gradient;
+
+        width: 250px;
+
+        padding: 5px;
+        border: 1px solid #E1E1E1;
+        border-radius: 5px;
+
+        display: table;
+        height: 30px;
+
+        .column {
+            display: table-cell;
+
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .control {
+            min-width: 15px;
+            .fa {
+                cursor: pointer;
+            }
+        }
+
+        .play, .pause {
+            padding-left: 2px;
+            font-size: 18px;
+        }
+
+        .previous, .next {
+            &.disabled {
+                color: silver;
+                .fa {
+                    cursor: default;
+                }
+            }
+        }
+
+        .track-name {
+            text-align: left;
+            max-width: 200px;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+
+}
