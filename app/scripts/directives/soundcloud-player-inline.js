@@ -1,6 +1,6 @@
 angular
     .module( 'spaApp' )
-    .directive( 'soundcloudPlayerInline', function( $timeout ){
+    .directive( 'soundcloudPlayerInline', function( $timeout, analytics ){
         'use strict';
 
         var directive = {
@@ -142,6 +142,8 @@ angular
                 }
 
                 function EventsPlayHandler() {
+                    playerAnalytics( 'Started Playing', scope.track );
+
                     $timeout( function() {
                         scope.track.status = 'playing';
                         scope.$emit( 'soundcloud-player:playing', scope.track );
@@ -149,6 +151,8 @@ angular
                 }
 
                 function EventsPauseHandler() {
+                    playerAnalytics( 'Paused Playing', scope.track );
+
                     $timeout( function() {
                         scope.track.status = 'paused';
                         scope.$emit( 'soundcloud-player:paused', scope.track );
@@ -156,6 +160,8 @@ angular
                 }
 
                 function EventsFinishHandler() {
+                    playerAnalytics( 'Finished Playing', scope.track );
+
                     $timeout( function() {
                         scope.track.status = 'finished';
                         scope.$emit( 'soundcloud-player:finished', scope.track );
@@ -166,6 +172,12 @@ angular
                     if ( scope.track.id === track.id ) {
                         cb();
                     }
+                }
+
+                function playerAnalytics( action, track ) {
+                    var trackId = track.id +':'+ track.name;
+
+                    analytics.trackEvent( 'Player', action, trackId );
                 }
 
             }

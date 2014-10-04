@@ -6,7 +6,7 @@
  * Controller of the spaApp
  */
 angular.module( 'spaApp' )
-    .controller( 'MainCtrl', function( $scope, TrackResource ){
+    .controller( 'MainCtrl', function( $scope, analytics, TrackResource ){
         'use strict';
 
         //listeners
@@ -43,7 +43,7 @@ angular.module( 'spaApp' )
         }
 
         function playerPlayHandler( e, track ) {
-            $scope.$broadcast( 'soundcloud-player:play', track );
+            playTrack( track );
         }
 
         function playerPauseHandler( e, track ) {
@@ -51,10 +51,12 @@ angular.module( 'spaApp' )
         }
 
         function playerPreviousHandler() {
+            pageAnalytics( 'Previous Track From', $scope.currentTrack );
             playTrack( getPreviousTrack() );
         }
 
         function playerNextHandler() {
+            pageAnalytics( 'Next Track From', $scope.currentTrack );
             playTrack( getNextTrack() );
         }
 
@@ -75,6 +77,12 @@ angular.module( 'spaApp' )
             var track = useTrack || $scope.currentTrack;
 
             return $scope.tracks[ _.indexOf( $scope.tracks, track ) + 1 ];
+        }
+
+        function pageAnalytics( action, track ){
+            var trackId = track.id +':'+ track.name;
+
+            analytics.trackEvent( 'Page', action, trackId );
         }
 
 

@@ -89,6 +89,8 @@
         "SC": false,
         //ADM
         "module": false,
-        "require": false
+        "require": false,
+        //Google analytics
+        "_gaq": false
     }
 }
