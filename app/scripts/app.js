@@ -14,7 +14,9 @@ angular
         'ngCookies',
         'ngRoute',
         'ngSanitize',
-        'ngTouch'
+        'ngTouch',
+        'ngMorph',
+        'nvd3ChartDirectives'
     ] )
     .config( function( $routeProvider, $locationProvider ){
 

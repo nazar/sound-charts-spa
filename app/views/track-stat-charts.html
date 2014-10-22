@@ -1,0 +1,22 @@
+<div class="track-stat-charts">
+    <span class="glyphicon glyphicon-remove close"></span>
+    <div class="content">
+        <h2>{{ track.name }}</h2>
+
+        <nvd3-line-chart
+          data="chartDataRanks"
+          yAxisTickFormat="yAxisTickFormatFunction()"
+          xAxisTickFormat="xAxisTickFormatFunction()"
+          xAxisLabel="Date"
+          yAxisLabel="Position"
+          width="550px"
+          height="350px"
+          showXAxis="true"
+          showYAxis="true"
+          forceY="[-1, minValue]"
+          >
+            <svg></svg>
+        </nvd3-line-chart>
+
+    </div>
+</div>

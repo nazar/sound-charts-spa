@@ -5,8 +5,16 @@
     </div>
 
     <div class="delta">
-        <i class="fa"  ng-class=" trackIconClass( track ) "></i>
-        {{ trackPlaybackDelta( track )  }}
+        <i class="fa"  ng-class=" trackIconClass() "></i>
+        {{ trackPlaybackDelta()  }}
+    </div>
+
+    <div class="info" ng-if=" canShowInfo() ">
+        <i class="fa fa-info-circle"
+           ng-morph-overlay="morphSettings"
+           ng-click=" loadTrackSnapshots() "
+          >
+        </i>
     </div>
 
 

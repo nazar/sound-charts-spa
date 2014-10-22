@@ -127,8 +127,13 @@ angular
                         $widget.load( scope.track.uri, {
                             show_user: true,
                             visual: false,
-                            show_comments: true,
+                            show_comments: false,
                             show_playcount: true,
+
+                            sharing: true,
+                            liking: true,
+                            buying: true,
+                            download: true,
 
                             callback: function(){
                                 $timeout( function() {
