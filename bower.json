@@ -11,7 +11,11 @@
     "angular-animate": "1.2.22",
     "angular-touch": "1.2.22",
     "angular-route": "1.2.22",
-    "lodash": "2.4.1"
+    "lodash": "2.4.1",
+    "d3": "3.4.13",
+    "nvd3": "1.1.15-beta",
+    "angularjs-nvd3-directives": "0.0.7",
+    "angular-morph": "0.1.0"
   },
   "devDependencies": {
     "angular-mocks": "1.2.22",

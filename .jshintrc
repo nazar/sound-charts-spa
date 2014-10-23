@@ -81,6 +81,7 @@
     "globals"       : {
         // NG
         "angular": false,
+        "d3": false,
         // jQuery
         "$": false,
         // lodash
