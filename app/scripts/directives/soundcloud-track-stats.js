@@ -72,13 +72,13 @@ angular
 
                 $scope.formatNumbers = function(){
                     return function(d){
-                        return parseInt(d, 10);
+                        return parseInt(d, 10).toLocaleString();
                     };
                 };
 
                 $scope.formatNegativeAdjuster = function(){
                     return function(d){
-                        return parseInt(d * -1, 10);
+                        return parseInt(d * -1, 10).toLocaleString();
                     };
                 };
 
