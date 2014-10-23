@@ -61,13 +61,22 @@ angular
 
 
 
-                $scope.xAxisTickFormatFunction = function(){
+                /////////////////
+                // charting helpers
+
+                $scope.formatTimeAxis = function(){
                     return function(d){
                         return d3.time.format('%b-%d')(new Date(d));
                     };
                 };
 
-                $scope.yAxisTickFormatFunction = function(){
+                $scope.formatNumbers = function(){
+                    return function(d){
+                        return parseInt(d, 10);
+                    };
+                };
+
+                $scope.formatNegativeAdjuster = function(){
                     return function(d){
                         return parseInt(d * -1, 10);
                     };
@@ -88,7 +97,7 @@ angular
 
                 function assignSnapshots( results ) {
 
-                    function chartRankValues() {
+                    function playbackRankValues() {
                         return _.map( results.data, function( snapshot ) {
                             return [
                                 new Date( snapshot.snapshotDate ),
@@ -97,12 +106,61 @@ angular
                         } );
                     }
 
-                    $scope.chartDataRanks = [
+                    function playbackFavouritesValues() {
+                        return _.map( results.data, function( snapshot ) {
+                            return [
+                                new Date( snapshot.snapshotDate ),
+                                snapshot.rankFavoritingsCount * -1
+                            ];
+                        } );
+                    }
+
+                    function playbacksDeltaValues() {
+                        return _.map( results.data, function( snapshot ) {
+                            return [
+                                new Date( snapshot.snapshotDate ),
+                                snapshot.playbackCountDelta
+                            ];
+                        } );
+                    }
+
+                    function playbacksValues() {
+                        return _.map( results.data, function( snapshot ) {
+                            return [
+                                new Date( snapshot.snapshotDate ),
+                                snapshot.playbackCount
+                            ];
+                        } );
+                    }
+
+                    $scope.chartDataPlaybackRank = [
                         {
-                            key: ' Track Rank ',
-                            values: chartRankValues()
+                            key: 'Playback Rank',
+                            values: playbackRankValues()
                         }
                     ];
+
+                    $scope.chartDataFavouritesRank = [
+                        {
+                            key: 'Playback Rank',
+                            values: playbackFavouritesValues()
+                        }
+                    ];
+
+                    $scope.chartDataPlaybacks = [
+                        {
+                            key: 'Playbacks',
+                            values: playbacksValues()
+                        }
+                    ];
+
+                    $scope.chartDataPlaybackDeltas = [
+                        {
+                            key: 'Playback Deltas',
+                            values: playbacksDeltaValues()
+                        }
+                    ];
+
                 }
 
 
