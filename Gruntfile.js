@@ -15,10 +15,21 @@ module.exports = function( grunt ){
     // Time how long tasks take. Can help when optimizing build times
     require( 'time-grunt' )( grunt );
 
+    var fs = require( 'fs' );
+
     // Configurable paths for the application
     var appConfig = {
         app: require( './bower.json' ).appPath || 'app',
         dist: 'dist'
+    };
+
+    var fallbackToIndex = function( connect, index, file ){
+        return connect().use( function( req, res, next ){
+            if ( req.url === file ) {
+                return next();
+            }
+            res.end( fs.readFileSync( index ) );
+        } );
     };
 
     // Define the configuration for all the tasks
@@ -86,7 +97,8 @@ module.exports = function( grunt ){
                                 '/bower_components',
                                 connect.static( './bower_components' )
                             ),
-                            connect.static( appConfig.app )
+                            connect.static( appConfig.app ),
+                            fallbackToIndex( connect, 'app/index.html', '/index.html' )
                         ];
                     }
                 }
