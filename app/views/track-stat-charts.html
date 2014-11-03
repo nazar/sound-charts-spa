@@ -57,32 +57,32 @@
                 <div class="track-chart">
                     <h3>Daily Playbacks</h3>
 
-                    <nvd3-discrete-bar-chart
+                    <nvd3-multi-bar-chart
                       data="chartDataPlaybackDeltas"
                       yAxisTickFormat="formatNumbers()"
                       xAxisTickFormat="formatTimeAxis()"
-                      xAxisLabel="Date"
                       yAxisLabel="Daily Playbacks"
                       showXAxis="true"
                       showYAxis="true"
+                      rotateLabels="-90"
                       width="500"
                       height="300"
                       margin="{left: 80}"
                       >
                         <svg></svg>
-                    </nvd3-discrete-bar-chart>
+                    </nvd3-multi-bar-chart>
 
                 </div>
 
                 <div class="track-chart">
                     <h3>Total Playbacks</h3>
 
-                    <nvd3-discrete-bar-chart
+                    <nvd3-multi-bar-chart
                       data="chartDataPlaybacks"
                       yAxisTickFormat="formatNumbers()"
                       xAxisTickFormat="formatTimeAxis()"
-                      xAxisLabel="Date"
                       yAxisLabel="Total Playbacks"
+                      rotateLabels="-90"
                       showXAxis="true"
                       showYAxis="true"
                       width="500"
@@ -90,7 +90,7 @@
                       margin="{left: 80}"
                       >
                         <svg></svg>
-                    </nvd3-discrete-bar-chart>
+                    </nvd3-multi-bar-chart>
 
                 </div>
 
